@@ -1,0 +1,36 @@
+@startuml
+partition Schleife
+(*) --> "Start Interaktion zwischen NAO und Person"
+"Start Interaktion zwischen NAO und Person" --> "Dezibelüberschreitung"
+if " "
+    -->[true] "weiter mit Gesichtserkennung"
+else
+    -->[false] "Knopf am Kopf wird gedrückt"
+    if " "
+    -->[true] "weiter mit Gesichtserkennung"
+    else
+    -->[false] "bestimmte Wortgruppe wird gesagt"
+    if " "
+    -->[true] "weiter mit Gesichtserkennung"
+    else
+    -->[false] "Start Interaktion zwischen NAO und Person"
+}
+"weiter mit Gesichtserkennung" --> "NAO macht Bild"
+"NAO macht Bild" --> "NAO vergleicht Bild mit Bildern in Datenbank"
+if "Person erkannt"
+    -->[true] "NAO spricht Person an"
+else
+    -->[false] "NAO fragt Person: Guten Tag, ich bin NAO, darf ich Sie in meine Datenbank aufnehmen?"
+    if "Antwort"
+        -->[Ja] "Person wird in Datenbank aufgenommen"  
+    else
+        -->[kein "Ja"] "NAO sagt, dass diese Antwort nicht zielführend ist."
+
+"NAO sagt, dass diese Antwort nicht zielführend ist."--> "NAO fragt Person: Guten Tag, ich bin NAO, darf ich Sie in meine Datenbank aufnehmen?"
+"NAO spricht Person an" --> "NAO sagt: Hallo <Name> wie geht es dir?"
+"Person wird in Datenbank aufgenommen" --> "NAO fragt: Wie heißen Sie?"
+"NAO fragt: Wie heißen Sie?" --> "Antwort der Person wird mit zugehörigem Bild in Datenbank hinterlegt"
+"Antwort der Person wird mit zugehörigem Bild in Datenbank hinterlegt" --> "NAO vergleicht Bild mit Bildern in Datenbank"
+"NAO sagt: Hallo <Name> wie geht es dir?" --> (*)
+
+@enduml

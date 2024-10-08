@@ -1,0 +1,17 @@
+@startuml
+
+(*) --> "Antwort von Person erhalten"
+
+"Antwort von Person erhalten" --> "Speech-to-Text"
+
+"Speech-to-Text" --> "Speech-to-Text in Llama überführen"
+
+"Speech-to-Text in Llama überführen" --> "Llama Antwort"
+
+"Llama Antwort" --> "Llama Antwort in Text-to-Speech überführen"
+
+"Llama Antwort in Text-to-Speech überführen" --> "Antwort NAO"
+
+"Antwort NAO" --> (*)
+
+@enduml

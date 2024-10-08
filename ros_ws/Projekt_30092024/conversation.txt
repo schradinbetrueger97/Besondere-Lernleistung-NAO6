@@ -1,0 +1,36 @@
+NAO[conversation_start] - NAO wartet bis Knopf am Kopf gedrückt
+- wait for action
+
+P[start_conversation] - P drückt Knopf am Kopf von NAO
+- action executed
+
+NAO[greeting] - NAO sagt "Hallo ich bin NAO und ich würde gerne mit dir sprechen. Könntest du mir deinen NAmen verraten?"
+- speaker/publisher
+
+P[greeting_answer] - "<name>"
+- dialog_listener(action server)
+
+NAO[save_name] - String.name_p = {"<name>"}
+- save listener.String
+
+NAO[thanks_giving] - NAO sagt "Danke für die Antwort <name>!"
+- speaker + listener.string
+
+NAO[question1] - NAO sagt "Wie geht es Ihnen auf einer Skala von 1 bis 10? 1 für schlecht, 10 für sehr gut."
+- speaker
+
+P[question1_answer] - "<number_of_mind>"
+- dialog_listener
+
+NAO[save.number_of_mind] - Integer.number_of_mind_p = {"<number_of_mind>"}
+- save listener.Integer
+
+NAO[say_opinion] - NAO sagt "Danke für deine Offenheit!
+- if(Integer<=3) Das ist aber schlecht. Die nächste Zeit wir bestimmt schöner für dich."
+- ifelse(4<=Integer<=6) Das hört sich okay an. Das wird in nächster Zeit bestimmt besser."
+- ifelse(10=>Integer>=7) Das freut mich zu hören. Hoffentlich bleibt das so."
+- else()kannst du das bitte wiederholen, damit kann ich nicht arbeiten.
+
+--> als match Statements
+
+NAO[goodbye] - NAO sagt "Bis bald, <name>!"

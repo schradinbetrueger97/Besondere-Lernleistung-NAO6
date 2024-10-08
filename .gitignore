@@ -1,9 +1,9 @@
-ros_ws/*/build/
-ros_ws/*/install/
-ros_ws/*/.vscode/
-ros_ws/*/log/
-ros_ws/*/dlib/
+**/build/
+**/install/
+**/.vscode/
+**/log/
+**/dlib/
 
-ros_ws/src/pepper_meshes
-ros_ws/src/nao_meshes
-ros_ws/src/naoqi_*
+**/pepper_meshes
+**/nao_meshes
+**/naoqi_*
